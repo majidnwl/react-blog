@@ -10,7 +10,6 @@ const ListBlogs = () => {
             .get("https://api.slingacademy.com/v1/sample-data/blog-posts")
             .then((res) => {
                 setPosts(res.data.blogs);
-                console.log(res.data.blogs)
             });
     }, []);
 

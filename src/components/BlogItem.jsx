@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { formatDate } from "../helper";
+import axios from "axios";
 
 const BlogItem = ({ post }) => {
+    const [user, setUser] = useState({});
+
+    useEffect(() => {
+        axios
+            .get(
+                `https://api.slingacademy.com/v1/sample-data/users/${post.user_id}`
+            )
+            .then((res) => {
+                const { first_name } = res.data.user;
+                setUser(first_name);
+            });
+    }, []);
+
     return (
         <div className=" bg-white shadow-box12 rounded-[8px] transition duration-100 hover:shadow-box13">
             <div className="course-thumb h-[260px] rounded-t-[8px]  relative">
@@ -21,7 +35,7 @@ const BlogItem = ({ post }) => {
                         href="blog-single.html"
                     >
                         <img src="/images/svg/admin.svg" alt="" />
-                        <span>{'User Name'}</span>
+                        <span>{user}</span>
                     </a>
                     <a
                         className=" flex items-center space-x-2"
