@@ -1,25 +1,33 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import BlogItem from "./BlogItem";
+import Loader from "./Loader";
 
 const ListBlogs = () => {
     const [posts, setPosts] = useState([]);
+    const [loader, setLoader] = useState(false);
 
     useEffect(() => {
+        setLoader(true);
         axios
             .get("https://api.slingacademy.com/v1/sample-data/blog-posts")
             .then((res) => {
                 setPosts(res.data.blogs);
+            })
+            .finally(() => {
+                setLoader(false);
             });
     }, []);
 
     return (
         <div className="lg:col-span-8 col-span-12">
-            <div className="grid md:grid-cols-2 grid-cols-1 gap-[30px]">
-                {posts.map((post, i) => (
-                    <BlogItem key={i} post={post} />
-                ))}
-            </div>
+            {loader ? <Loader /> : (
+                <div className="grid md:grid-cols-2 grid-cols-1 gap-[30px]">
+                    {posts.map((post, i) => (
+                        <BlogItem key={i} post={post} />
+                    ))}
+                </div>
+            )}
             <div className="pagination mt-14">
                 <ul className=" flex justify-center space-x-3">
                     <li className="inline-flex">

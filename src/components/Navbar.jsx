@@ -8,12 +8,12 @@ const Navbar = () => {
             <div className="main-header py-8">
                 <div className="container">
                     <div className=" flex items-center justify-between flex-wrap">
-                        <a
-                            href="index-2.html"
+                        <Link
+                            to="/"
                             className="brand-logo flex-none lg:mr-10 md:w-auto max-w-[120px] "
                         >
                             <img src="/images/logo/logo.svg" alt="" />
-                        </a>
+                        </Link>
                         <div className="flex items-center flex-1">
                             <div className="flex-1 main-menu  lg:relative xl:mr-[74px] mr-6">
                                 <ul className="menu-active-classes">

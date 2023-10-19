@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { formatDate } from "../helper";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import { getUserAction } from "../actions";
 
 const BlogItem = ({ post }) => {
-    const [user, setUser] = useState({});
+    const [firstName, setFirstName] = useState("");
 
     useEffect(() => {
-        axios
-            .get(
-                `https://api.slingacademy.com/v1/sample-data/users/${post.user_id}`
-            )
+        if (post.user_id) {
+            getUserAction(post.user_id)
             .then((res) => {
-                const { first_name } = res.data.user;
-                setUser(first_name);
+                setFirstName(res.data.user.first_name);
             });
-    }, []);
+        }
+    }, [post]);
 
     return (
         <div className=" bg-white shadow-box12 rounded-[8px] transition duration-100 hover:shadow-box13">
@@ -30,35 +30,35 @@ const BlogItem = ({ post }) => {
             </div>
             <div className="course-content p-8">
                 <div className="flex   lg:space-x-10 space-x-5 mb-5">
-                    <a
-                        className=" flex items-center space-x-2"
-                        href="blog-single.html"
+                    <Link
+                        className="flex items-center space-x-2"
+                        to={`/blog/${post.id}`}
                     >
                         <img src="/images/svg/admin.svg" alt="" />
-                        <span>{user}</span>
-                    </a>
-                    <a
+                        <span>{firstName}</span>
+                    </Link>
+                    <Link
                         className=" flex items-center space-x-2"
-                        href="blog-single.html"
+                        to={`/blog/${post.id}`}
                     >
                         <img src="/images/svg/calender.svg" alt="" />
                         <span>{formatDate(post.updated_at)}</span>
-                    </a>
+                    </Link>
                 </div>
                 <h4 className=" text-xl mb-5 font-bold">
-                    <a
-                        href="blog-single.html"
+                    <Link
+                        to={`/blog/${post.id}`}
                         className=" hover:text-primary transition duration-150"
                     >
                         {post.title}
-                    </a>
+                    </Link>
                 </h4>
-                <a
-                    href="blog-single.html"
+                <Link
+                    to={`/blog/${post.id}`}
                     className=" text-black font-semibold hover:underline transition duration-150"
                 >
                     {post.description}
-                </a>
+                </Link>
             </div>
         </div>
     );

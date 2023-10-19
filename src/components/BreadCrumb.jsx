@@ -1,18 +1,19 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const BreadCrumb = () => {
+const BreadCrumb = ({title, content}) => {
     return (
         <div className="breadcrumbs section-padding bg-[url('/images/all-img/bred.html')] bg-cover bg-center bg-no-repeat">
             <div className="container text-center">
-                <h2>Blog Grid with Right Sidebar</h2>
+                <h2>{title}</h2>
                 <nav>
                     <ol className="flex items-center justify-center space-x-3">
                         <li className="breadcrumb-item">
-                            <a href="index-2.html">Pages </a>
+                            <Link to="/">Home </Link>
                         </li>
                         <li className="breadcrumb-item">-</li>
                         <li className="text-primary">
-                            Blog Grid with Right Sidebar{" "}
+                            {content}
                         </li>
                     </ol>
                 </nav>

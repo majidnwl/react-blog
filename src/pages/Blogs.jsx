@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { BreadCrumb, ListBlogs } from "../components";
 
 const Blogs = () => {
     return (
         <>
-            <BreadCrumb />
+            <BreadCrumb title="Blogs" content='keep learning with us' />
             <div className="nav-tab-wrapper tabs  section-padding">
                 <div className="container">
                     <div className="grid grid-cols-12 gap-[30px]">
