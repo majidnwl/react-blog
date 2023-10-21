@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { BlogSingle, BreadCrumb } from "../components";
-import { useParams } from "react-router-dom";
 
 const Blog = () => {
     const [title, setTitle] = useState("");

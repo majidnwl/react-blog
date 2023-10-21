@@ -5,6 +5,7 @@ import parse from "html-react-parser";
 import "./BlogSingle.css";
 import { getUserAction } from "../actions";
 import Loader from "./Loader";
+import Users from "./Users";
 
 const BlogSingle = ({ setTitle, setDescription }) => {
     const { blogId } = useParams();
@@ -445,83 +446,7 @@ const BlogSingle = ({ setTitle, setDescription }) => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="wdiget widget_catagory">
-                                <h4 className="widget-title">Categories</h4>
-                                <ul className=" list-item space-y-4">
-                                    <li className=" block">
-                                        <a
-                                            href="#"
-                                            className=" flex justify-between bg-[#F8F8F8] py-[17px] px-5 rounded hover:bg-primary hover:text-white transition-all
-                  duration-150"
-                                        >
-                                            <span>Development (23)</span>
-                                            <span className=" text-2xl">
-                                                <iconify-icon icon="heroicons:chevron-right-20-solid" />
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li className=" block">
-                                        <a
-                                            href="#"
-                                            className=" flex justify-between bg-[#F8F8F8] py-[17px] px-5 rounded hover:bg-primary hover:text-white transition-all
-                  duration-150"
-                                        >
-                                            <span>Art &amp; Design (45)</span>
-                                            <span className=" text-2xl">
-                                                <iconify-icon icon="heroicons:chevron-right-20-solid" />
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li className=" block">
-                                        <a
-                                            href="#"
-                                            className=" flex justify-between bg-[#F8F8F8] py-[17px] px-5 rounded hover:bg-primary hover:text-white transition-all
-                  duration-150"
-                                        >
-                                            <span>Data Science (14)</span>
-                                            <span className=" text-2xl">
-                                                <iconify-icon icon="heroicons:chevron-right-20-solid" />
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li className=" block">
-                                        <a
-                                            href="#"
-                                            className=" flex justify-between bg-[#F8F8F8] py-[17px] px-5 rounded hover:bg-primary hover:text-white transition-all
-                  duration-150"
-                                        >
-                                            <span>Data Science (14)</span>
-                                            <span className=" text-2xl">
-                                                <iconify-icon icon="heroicons:chevron-right-20-solid" />
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li className=" block">
-                                        <a
-                                            href="#"
-                                            className=" flex justify-between bg-[#F8F8F8] py-[17px] px-5 rounded hover:bg-primary hover:text-white transition-all
-                  duration-150"
-                                        >
-                                            <span>Technology (28)</span>
-                                            <span className=" text-2xl">
-                                                <iconify-icon icon="heroicons:chevron-right-20-solid" />
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li className=" block">
-                                        <a
-                                            href="#"
-                                            className=" flex justify-between bg-[#F8F8F8] py-[17px] px-5 rounded hover:bg-primary hover:text-white transition-all
-                  duration-150"
-                                        >
-                                            <span>It Management (34)</span>
-                                            <span className=" text-2xl">
-                                                <iconify-icon icon="heroicons:chevron-right-20-solid" />
-                                            </span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
+                            <Users />
                             <div className="wdiget widget-recent-post">
                                 <h4 className=" widget-title">
                                     Related Courses

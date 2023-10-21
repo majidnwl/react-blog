@@ -5,6 +5,7 @@ import BreadCrumb from "./BreadCrumb";
 import ListBlogs from "./ListBlogs";
 import BlogSingle from "./BlogSingle";
 import Loader from "./Loader";
+import Users from "./Users";
 
 export {
     Navbar,
@@ -13,5 +14,6 @@ export {
     BreadCrumb,
     ListBlogs,
     BlogSingle,
-    Loader
+    Loader,
+    Users
 }
